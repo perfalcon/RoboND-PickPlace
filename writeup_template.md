@@ -14,6 +14,10 @@ This program uses the Kinematcis ( Forward and Inverse ) to calculate the positi
 [image2]: ./images/Kuka-Arm2.PNG
 [image3]: ./images/Label-Kuka-Arm.jpg
 [image4]: ./images/Theta-angles-1-2-3.PNG
+[image5]: ./images/ik-copy.png
+[image6]: ./images/l21-l-inverse-kinematics-01.png
+[image7]: ./images/WC-coords.png
+[image8]: ./images/l20-inverse-kinematics-02.png
 
 ### Kinematic Analysis
 #### 1. Run the forward_kinematics demo and evaluate the kr210.urdf.xacro file to perform kinematic analysis of Kuka KR210 robot and derive its DH parameters.
@@ -76,13 +80,25 @@ Then calculated the rotations as
 
 Calculated the Theta angles as:
 
-Theta1:
+![theta123-1][image5]
+![theta123-2][image4]
 
+Used the above drawings to calculate the theta 1 , 2 & 3 angles.
+Used this diagram as reference to calculate the theta1 for the Kuka-Aram.
+![theta1][image5]
+
+As our kuka-arm has a spherical wrist, we take Zc as the wrist center and calculate the wrist center position and use them in the atan2 function to get the @1.
+First calculated the Wrist Center Coordinates using this formula:
+![Wrist Center Coords][image7]
+
+
+Theta1:
+     
      #Calculate WC and then calculate theta using atan2 function.
       
-      p_ee = Matrix([px,py,pz])
-      WC = p_ee - R0_6 * Matrix([0, 0, s[d7]])
-      theta1 = atan2(WC[1],WC[0]) # @2 = atan2(y,x)
+      p_ee = Matrix([px,py,pz])  # end effector position
+      WC = p_ee - R0_6 * Matrix([0, 0, s[d7]]) # R0_6 is the rotation discrepancy between DH parameters and Gazebo
+      theta1 = atan2(WC[1],WC[0]) # @1 = atan2(y,x)
 	    
 
 Theta2:
@@ -116,9 +132,7 @@ Theta2:
   	theta6 = atan2(R3_6[1,1],R3_6[1,0])
 
 
-Following illustrations are used to derive the Theta angles
 
-![alt text][image4]
 
 ### Project Implementation
 
