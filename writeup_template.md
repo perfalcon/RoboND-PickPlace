@@ -78,16 +78,14 @@ Then calculated the rotations as
         
 #### 3. Decouple Inverse Kinematics problem into Inverse Position Kinematics and inverse Orientation Kinematics; doing so derive the equations to calculate all individual joint angles.
 
-Calculated the Theta angles as:
+Calculation of the Theta angles as:
 
-![theta123-1][image5]
-![theta123-2][image4]
 
-Used the above drawings to calculate the theta 1 , 2 & 3 angles.
 Used this diagram as reference to calculate the theta1 for the Kuka-Aram.
 ![theta1][image6]
 
 As our kuka-arm has a spherical wrist, we take Zc as the wrist center and calculate the wrist center position and use them in the atan2 function to get the @1.
+
 First calculated the Wrist Center Coordinates using this formula:
 ![Wrist Center Coords][image7]
 
@@ -99,7 +97,15 @@ Theta1:
       p_ee = Matrix([px,py,pz])  # end effector position
       WC = p_ee - R0_6 * Matrix([0, 0, s[d7]]) # R0_6 is the rotation discrepancy between DH parameters and Gazebo
       theta1 = atan2(WC[1],WC[0]) # @1 = atan2(y,x)
-	    
+
+
+
+Used these drawings to calculate the theta 2 & 3 angles.
+
+![theta123-1][image5]
+![theta123-2][image4]
+
+Used the Law of Cosines  (https://en.wikipedia.org/wiki/Law_of_cosines) to get the angles
 
 Theta2:
     
