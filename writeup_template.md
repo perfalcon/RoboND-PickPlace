@@ -85,7 +85,7 @@ Calculated the Theta angles as:
 
 Used the above drawings to calculate the theta 1 , 2 & 3 angles.
 Used this diagram as reference to calculate the theta1 for the Kuka-Aram.
-![theta1][image5]
+![theta1][image6]
 
 As our kuka-arm has a spherical wrist, we take Zc as the wrist center and calculate the wrist center position and use them in the atan2 function to get the @1.
 First calculated the Wrist Center Coordinates using this formula:
