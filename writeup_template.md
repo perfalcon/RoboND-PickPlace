@@ -59,14 +59,14 @@ Calculated the homogenous transformations by substituting the DH parameters as
 	     [0,0,0,1]])
 	return TF
 	
- 	T0_1 = TF_Matrix(alpha0,a0,d1,q1).subs(s)
-    	T1_2 = TF_Matrix(alpha1,a1,d2,q2).subs(s)
-    	T2_3 = TF_Matrix(alpha2,a2,d3,q3).subs(s)
-        T3_4 = TF_Matrix(alpha3,a3,d4,q4).subs(s)
-        T4_5 = TF_Matrix(alpha4,a4,d5,q5).subs(s)
-	T5_6 = TF_Matrix(alpha5,a5,d6,q6).subs(s)
-	T6_EE = TF_Matrix(alpha6,a6,d7,q7).subs(s)
-	T0_EE = T0_1 * T1_2 * T2_3 * T3_4 * T4_5 * T5_6 * T6_EE
+     T0_1 = TF_Matrix(alpha0,a0,d1,q1).subs(s)
+     T1_2 = TF_Matrix(alpha1,a1,d2,q2).subs(s)
+     T2_3 = TF_Matrix(alpha2,a2,d3,q3).subs(s)
+     T3_4 = TF_Matrix(alpha3,a3,d4,q4).subs(s)
+     T4_5 = TF_Matrix(alpha4,a4,d5,q5).subs(s)
+     T5_6 = TF_Matrix(alpha5,a5,d6,q6).subs(s)
+     T6_EE = TF_Matrix(alpha6,a6,d7,q7).subs(s)
+     T0_EE = T0_1 * T1_2 * T2_3 * T3_4 * T4_5 * T5_6 * T6_EE
     
         
 #### 3. Decouple Inverse Kinematics problem into Inverse Position Kinematics and inverse Orientation Kinematics; doing so derive the equations to calculate all individual joint angles.
@@ -105,7 +105,7 @@ Used the Law of Cosines  (https://en.wikipedia.org/wiki/Law_of_cosines) to get t
 
 Theta2:
     
-    	s_a = 1.501
+        s_a = 1.501
         s_b = sqrt(pow((sqrt(WC[0]*WC[0]+WC[1]*WC[1])-0.35),2)+pow((WC[2]-0.75),2))
         s_c = 1.25
 
