@@ -108,11 +108,12 @@ Theta2:
         s_a = 1.501
         s_b = sqrt(pow((sqrt(WC[0]*WC[0]+WC[1]*WC[1])-0.35),2)+pow((WC[2]-0.75),2))
         s_c = 1.25
-
-	angle_a = acos((s_c**2 + s_b**2 - s_a**2)/2*s_b*s_c)
-        angle_b = acos((s_c**2 + s_a**2 - s_b**2)/2*s_c*s_a)
-        angle_c = acos((s_a**2 + s_b**2 - s_c**2)/2*s_a*s_b)
-        theta2 = pi/2 - angle_a - atan2(WC[2]-s[d1],sqrt(WC[0]**2 + WC[1]**2 - s[a1]))
+	
+	angle_a = (acos((s_c**2 + s_b**2 - s_a**2)/(2*s_b*s_c))).evalf()
+	angle_b = (acos((s_c**2 + s_a**2 - s_b**2)/(2*s_c*s_a))).evalf()
+	angle_c = (acos((s_a**2 + s_b**2 - s_c**2)/(2*s_a*s_b))).evalf()
+        
+	theta2 = pi/2 - angle_a - atan2(WC[2]-s[d1],sqrt(WC[0]**2 + WC[1]**2 - s[a1]))
  
  Theta3:
  
