@@ -19,7 +19,8 @@ This program uses the Kinematcis ( Forward and Inverse ) to calculate the positi
 [image7]: ./images/WC-coords.png
 [image8]: ./images/l20-inverse-kinematics-02.png
 [image9]: ./images/law-cosines-arctan.PNG
-[image10]: ./images/law-cosines-1.PNG
+[image10]: ./images/law-cosines-1.png
+[image11]: ./images/EulerAngles.png
 
 ### Kinematic Analysis
 #### 1. Run the forward_kinematics demo and evaluate the kr210.urdf.xacro file to perform kinematic analysis of Kuka KR210 robot and derive its DH parameters.
@@ -103,8 +104,8 @@ Used this drawing to calculate the theta 2 & 3 angles.
 
 Used the Law of Cosines  (https://en.wikipedia.org/wiki/Law_of_cosines) to get the angles
 
-![Cosine Law -1 ][image9]
-![Cosine Law -ArcTan ][image10]
+![Cosine Law -1 ][image10]
+![Cosine Law -ArcTan][image9]
 
 
 Theta2:
@@ -124,7 +125,24 @@ Theta2:
 
 
 
-  Theta4:
+Calculate Theat 4, 5 & 6 angles:
+
+As the overall RPY (Roll Pitch Yaw) rotation between base_link and gripper_link is equal to the product of individual rotations between respective links, following holds true:
+
+R0_6 = Rrpy (Homogeneous RPY rotation between base_link and gripper_link)
+
+Here we use the Euler Angles:
+![Euler Angles][image11]
+
+Pre-multiply both sides of the above equation(R0_6 =Rrpy) by inv(R0_3) which leads to:
+R3_6 = inv(R0_3) * Rrpy
+
+
+
+Use the RHS result to calculate the Theta4,5 & 6.
+
+
+Theta4:
        
        	R0_3 = T0_1[0:3,0:3]*T1_2[0:3,0:3]*T2_3[0:3,0:3]
         R0_3 = R0_3.evalf(subs={q1:theta1,q2:theta2,q3:theta3})
@@ -149,10 +167,13 @@ Theta2:
 Followed a step by step approach to build this project.
 Initially created symbols and labelling the Kuka arm with joints, links, distances and etc.
 Then created the DH Transformation matrix and using the FK, created the individual transformation matrix with symbols then subsituted the DH parameters
+
 Calculated the rotation matrices and then the end-effector (wrist center) position and orientation from the  request.
+
 Using the IK calculated the joint angles.
 
 Need to improve the accuracy of picking and placing more items.
+Need to improve the efficiency and modularity of the code by moving some functionality out of the for loop.
 
 Please refer to the attached code in :  IK_server.py.
 
