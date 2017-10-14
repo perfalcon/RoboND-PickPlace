@@ -67,12 +67,7 @@ Calculated the homogenous transformations by substituting the DH parameters as
 	T5_6 = TF_Matrix(alpha5,a5,d6,q6).subs(s)
 	T6_EE = TF_Matrix(alpha6,a6,d7,q7).subs(s)
 	T0_EE = T0_1 * T1_2 * T2_3 * T3_4 * T4_5 * T5_6 * T6_EE
-      
-    Then calculated the rotations as
-      
-      R_z = rot_z(radians(180))
-      R_y = rot_y(radians(-90))
-      R_corr= simplify(R_z * R_y)
+    
         
 #### 3. Decouple Inverse Kinematics problem into Inverse Position Kinematics and inverse Orientation Kinematics; doing so derive the equations to calculate all individual joint angles.
 
