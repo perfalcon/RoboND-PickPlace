@@ -18,6 +18,8 @@ This program uses the Kinematcis ( Forward and Inverse ) to calculate the positi
 [image6]: ./images/l21-l-inverse-kinematics-01.png
 [image7]: ./images/WC-coords.png
 [image8]: ./images/l20-inverse-kinematics-02.png
+[image9]: ./images/law-cosines-arctan.PNG
+[image10]: ./images/law-cosines-1.PNG
 
 ### Kinematic Analysis
 #### 1. Run the forward_kinematics demo and evaluate the kr210.urdf.xacro file to perform kinematic analysis of Kuka KR210 robot and derive its DH parameters.
@@ -95,12 +97,15 @@ Theta1:
 
 
 
-Used these drawings to calculate the theta 2 & 3 angles.
+Used this drawing to calculate the theta 2 & 3 angles.
 
 ![theta123-1][image5]
-![theta123-2][image4]
 
 Used the Law of Cosines  (https://en.wikipedia.org/wiki/Law_of_cosines) to get the angles
+
+![Cosine Law -1 ][image9]
+![Cosine Law -ArcTan ][image10]
+
 
 Theta2:
     
@@ -116,6 +121,8 @@ Theta2:
  Theta3:
  
  	theta3 = pi/2 - (angle_b + 0.036)
+
+
 
   Theta4:
        
